@@ -1,0 +1,11 @@
+@import "./breakpoints.scss";
+
+$green: green; 
+.test {
+width: 100%; 
+height: 230px; 
+  @include media("<=phone") {
+  background-color: $green; 
+}
+
+}
