@@ -1,19 +1,19 @@
 import React from 'react'
-import './header.css'
+
 
 const  Header = () => {
   return (
     <div className="header">
 		<div className="container">
-			<div className="row-center">
+			<div className="row center space-between">
 				<div className="logo">
-          <a href="#">Sarah Lauren G.</a>
+                    <a href="/">Sarah Lauren G.</a>
 				</div>
-				<nav>
+				<div className="nav">
 					<span></span>
 					<span></span>
 					<span></span>
-				</nav>
+				</div>
 			</div>
         </div>
     </div>
