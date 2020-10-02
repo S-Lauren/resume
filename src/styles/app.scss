@@ -1,20 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
 @import "./breakpoints.scss";
 @import "./colors.scss";
 @import "../components/Header/header.scss";
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700&display=swap");
+@import "../components/Banner/banner.scss";
+@import "../components/Boxes/boxes.scss";
 
 
-$green: green; 
-.test {
-width: 100%; 
-height: 230px; 
-    @include media("<=phone") {
-    background-color: $green; 
-    }
+// $green: green; 
+// .test {
+//   width: 100%; 
+//   height: 230px; 
+//   @include media("<=phone") {
+//   background-color: $green; 
+//   }
+// }
+html {
+  height: 0;
 }
 
+body {
+  font-family: 'Josefin Sans', 'Roboto';
+  margin: 0;
+}
+.container-fluid {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  .row {
+    display: flex;
+    height: 100%;
+  }
+}
 .container {
-
   width: 1560px;
   min-width: 1560px;
   margin: 0 auto;
