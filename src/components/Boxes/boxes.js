@@ -1,9 +1,10 @@
 import React from 'react';
-import {ReactComponent as ArrowNext} from '../../assets/arrow-right.svg'
-import {ReactComponent as ArrowPrev} from '../../assets/arrow-left.svg'
+import { Link, Route } from 'react-router-dom';
+import BoxItem from '../BoxItem/boxItem';
 
 
-const creations = [
+
+export const creations = [
  
   {
     id: 1,
@@ -30,31 +31,27 @@ const Boxes = () => {
 
       <section className="boxes">
         <div className="container-fluid">
-          {/* <div className="boxes-nav">
-            <div className="boxes-arrow prev disabled">
-              <ArrowPrev/>
-            </div>
-            <div className="boxes-arrow next">
-              <ArrowNext/>
-            </div>
-          </div> */}
           <div className="row">
             {creations.map(items => {
             return(
-            
-              <div className="box" key={items.id}>
+            <Link to={{ pathname: `/projects/${items.id}`,  state: {data: items }}}>
+              <div className="box">
                 <div className="box-details" key={items.id}>
                   <h2>{items.title}</h2>
+                 
                 </div>
+                
                 <div className="box-image">
                   <img alt="portfolio" src={require(`../../assets/${items.img}.png`)}/>
                 </div>
+                
               </div>
-      
+            </Link>
               )
             })} 
           </div>
         </div>
+
       </section>
   
   );

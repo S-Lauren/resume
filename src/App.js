@@ -3,21 +3,70 @@ import './styles/app.scss'
 import Header from './components/Header/header'
 import Banner from './components/Banner/banner';
 import Boxes from './components/Boxes/boxes';
+import Overlay from './components/Overlay/overlay';
+import gsap from 'gsap';
+import {  BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import BoxItem from './components/BoxItem/boxItem';
+
 
 function App() {
 
+
   useEffect(() => {
-    let vh = window.innerHeight * .01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`)
+
+    const tl =  gsap.timeline();
+    tl.from('.line span',{
+      opacity: 0,
+      duration: 1.8,
+      y: 100,
+      ease: "CircInOut",
+      skewY: 2,
+      delay: 1,
+      stagger: {
+        amount: 0.3
+      }
+    }).to(".overlay-top", {
+      duration: 1.6,
+      height: 0,
+      stagger: 0.4,
+      ease: "expo.inOut"
+    }).to(".overlay-bottom", {
+      duration: 1.6,
+      width: 0,
+      delay: -0.8,
+      ease: "expo.inOut",
+      stagger: {
+        amout: .4
+      }
+    }).from(".box-image img", 1.6, {
+      scale: 1.4,
+      delay: -.2,
+      ease: 'expo.inOut',
+      stagger: {
+        amount: .4
+      }
+    }).from(".box-details h2",{
+      opacity: 0, 
+      ease: 'expo.inOut',
+      duration: 1,
+      stagger: {
+        amount: .2
+      }
+    })
+
   }, [])
+
+
+
   
   return (
   <>
-    <div  className="test">
-      <Header />
-      <Banner/>
-      <Boxes/>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Overlay} />
+        <Route  path="/projects/:id" component={BoxItem} />
+      </Switch>
+    </Router>
   </>
   );
 }

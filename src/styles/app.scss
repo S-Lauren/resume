@@ -4,16 +4,9 @@
 @import "../components/Header/header.scss";
 @import "../components/Banner/banner.scss";
 @import "../components/Boxes/boxes.scss";
+@import "../components/Overlay/overlay.scss";
 
 
-// $green: green; 
-// .test {
-//   width: 100%; 
-//   height: 230px; 
-//   @include media("<=phone") {
-//   background-color: $green; 
-//   }
-// }
 html {
   height: 0;
 }

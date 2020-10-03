@@ -1,0 +1,66 @@
+.intro {
+  .top {
+    height: 50vh; 
+    position: absolute; 
+    z-index: 8;
+    width: 100%;
+    .overlay-top {
+      position: absolute;
+      height: 100%; 
+      width: 33.33vw; 
+      background-color: $black; 
+      bottom: 0; 
+      left: 0; 
+      right: 0;
+      @include media("<=tablet") {
+        width: 100vw; 
+      }
+      &:nth-child(2) {
+        left: 33.33%; 
+        @include media("<=tablet") {
+          display: none; 
+        }
+      }
+      &:nth-child(3) {
+        left: 33.33% * 2; 
+        @include media("<=tablet") {
+          display: none; 
+        }
+      }
+    }
+  }
+  .bottom {
+    height: 50vh; 
+    position: absolute; 
+    z-index: 8;
+    width: 100%;
+    bottom: 0;
+    .overlay-bottom{
+      position: absolute;
+      height: 100%; 
+      width: 33.33vw; 
+      background: $black; 
+      bottom: 0; 
+      right: 33.33%*2;
+      @include media("<=tablet") {
+        width: 100vw; 
+        right: 0;
+      }
+      &:nth-child(2){
+        right: 33.33%;
+        @include media("<=tablet") {
+          width: 100vw; 
+          top: 100%;
+          right: 0;
+        }
+      }
+      &:nth-child(3){
+        right: 0; 
+        @include media("<=tablet") {
+          width: 100vw; 
+          top: 200%;
+        }
+      }
+    }
+  }
+}

@@ -37,6 +37,7 @@
     @include media("<=tablet") {
       flex-direction: column;
     }
+    
     .box {
       position: relative;
       background: $black;
@@ -45,6 +46,7 @@
         .box-image {
           opacity: 0.4;
         }
+      
       }
   
       .box-details {
@@ -59,7 +61,7 @@
         z-index: 1;
         position: relative;
         @include media("<=tablet") {
-          width: 100%; 
+          width: 100vw; 
         
         }
         @include media("<=phone") {
@@ -69,7 +71,6 @@
         span {
           margin-top: 156px;
           font-size: 1.6rem;
-          opacity: 0.8;
           color: $white;
           font-weight: 600;
           @include media("<=desktop", ">tablet") {

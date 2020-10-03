@@ -6,7 +6,7 @@ const Banner = () => {
     <section className="main">
       <div className="container">
         <div className="row">
-          <h2>
+          <h2 >
             <div className="line">
               <span>Interactive Design is </span>
             </div>
