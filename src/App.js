@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
 import './styles/app.scss'
-import Header from './components/Header/header'
-import Banner from './components/Banner/banner';
-import Boxes from './components/Boxes/boxes';
 import Overlay from './components/Overlay/overlay';
 import gsap from 'gsap';
-import {  BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import {  BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BoxItem from './components/BoxItem/boxItem';
 
 
@@ -38,19 +35,19 @@ function App() {
       stagger: {
         amout: .4
       }
-    }).from(".box-image img", 1.6, {
-      scale: 1.4,
-      delay: -.2,
-      ease: 'expo.inOut',
-      stagger: {
-        amount: .4
-      }
     }).from(".box-details h2",{
       opacity: 0, 
       ease: 'expo.inOut',
       duration: 1,
       stagger: {
         amount: .2
+      }
+    }).from(".box-image img", 1.6, {
+      scale: 1.4,
+      delay: -.2,
+      ease: 'expo.inOut',
+      stagger: {
+        amount: .4
       }
     })
 

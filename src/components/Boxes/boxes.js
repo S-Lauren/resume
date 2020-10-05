@@ -9,17 +9,17 @@ export const creations = [
   {
     id: 1,
     title: "JavaScript Project",
-    img: 'cartography'
+    img: ['cartography']
   },
   {
     id: 2,
     title: "Watch People",
-    img: 'watchpeople'
+    img: ['watchpeople1', 'watchpeople']
   },
   {
     id: 3,
     title: "MusicRoom",
-    img: 'musicroom'
+    img: [ 'musicroom']
   }
 
 ]
@@ -42,7 +42,7 @@ const Boxes = () => {
                 </div>
                 
                 <div className="box-image">
-                  <img alt="portfolio" src={require(`../../assets/${items.img}.png`)}/>
+                  <img alt="portfolio" src={require(`../../assets/${items.img[0]}.png`)}/>
                 </div>
                 
               </div>
