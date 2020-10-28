@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import React, { useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
+import ImageProject from '../ImageProject/imageProject';
 
 const BoxItem = () => {
 
@@ -10,7 +11,7 @@ const BoxItem = () => {
     const tl = gsap.timeline(); 
     tl.from(".overlay", {
       duration: .8,
-      delay: .8,
+
       width: 0,
       ease: "expo.inOut",
       stagger: {
@@ -24,13 +25,6 @@ const BoxItem = () => {
       y: 100, 
       stagger: {
         amount: .2
-      }
-    }).from('.project-detail-2', {
-      duration: 1, 
-      right: 0,
-      opacity: 0,   
-      stagger: {
-        amount: .8
       }
     })
   }, [])
@@ -46,9 +40,9 @@ const BoxItem = () => {
                 </div>
               </div>
               <div className="project-detail-2">
-                <div className="project-image">
-                  <img src={require(`../../assets/${location.state.data.img[0]}.png`)}/>
-                </div>
+                <>
+                  <ImageProject img={location.state.data.img}/>
+                </>
               </div>
           </div>
         </div>
