@@ -10,7 +10,9 @@ const ImageProject = ({img}) => {
   let imgRev = useRef(null)
   let reveal = CSSRulePlugin.getRule('.img-container:after')
   const tl = new TimelineLite()
+
   useEffect(() => {
+
    tl.to(container,  {
       css: {visibility: 'visible'},
       duration: 1,

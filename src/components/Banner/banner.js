@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Banner = () => {
-  const heart = `❤️`
+  const heart = `<3`
   return (
     <section className="main">
       <div className="container">

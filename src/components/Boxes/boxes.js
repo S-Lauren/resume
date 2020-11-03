@@ -9,16 +9,19 @@ export const creations = [
   {
     id: 1,
     title: "JavaScript Project",
+    description: "WOaauhfeirflemrfojrigjgrlmjgermlkg ueihgreigner",
     img: ['cartography']
   },
   {
     id: 2,
-    title: "Watch People",
+    title: ["Watch People", "HelloMoro"],
+    description: ["Lorem ipsume jehezd jrfeop,fr", "Tcheck tchek tchekitout"],
     img: ['watchpeople1', 'watchpeople']
   },
   {
     id: 3,
     title: "MusicRoom",
+    description: "Hype Shit Never Hype Bitch",
     img: [ 'musicroom']
   }
 

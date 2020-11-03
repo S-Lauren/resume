@@ -2,11 +2,12 @@ import gsap from 'gsap';
 import React, { useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
 import ImageProject from '../ImageProject/imageProject';
+import Slider from '../Slider/slider';
 
 const BoxItem = () => {
 
   const location = useLocation()
-
+console.log(location.state.data)
   useEffect(() => {
     const tl = gsap.timeline(); 
     tl.from(".overlay", {
@@ -31,22 +32,23 @@ const BoxItem = () => {
  
   return (
     <div className="overlay">
-      <div className="project">
+      {/* <div className="project">
         <div className="container">
-          <div className="row">
+          <div className="row-2">
               <div className="project-detail">
                 <div className="project-title">
                   <p>{location.state.data.title}</p>
                 </div>
-              </div>
-              <div className="project-detail-2">
+              </div> */}
+              {/* <div className="project-detail-2"> */}
                 <>
-                  <ImageProject img={location.state.data.img}/>
+                  {/* <ImageProject img={location.state.data.img}/> */}
+                  <Slider data={location.state.data}/>
                 </>
-              </div>
-          </div>
+              {/* </div> */}
+          {/* </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
