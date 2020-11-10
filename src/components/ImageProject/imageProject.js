@@ -3,6 +3,7 @@ import './imageProject.scss'
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import {TimelineLite, Power2} from 'gsap'; 
 
+
 const ImageProject = ({img}) => {
 
   let container = useRef(null)

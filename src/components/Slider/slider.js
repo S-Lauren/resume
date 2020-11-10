@@ -1,28 +1,49 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './slider.scss'; 
-import {TweenLite,Power3} from 'gsap'; 
+import CSSRulePlugin from 'gsap/CSSRulePlugin';
+import {TweenLite,TimelineLite, Power3} from 'gsap'; 
 import {ReactComponent as ArrowLeft} from '../../assets/arrow-left-white.svg';
 import {ReactComponent as ArrowRight} from '../../assets/arrow-left-white.svg';
 
 const Slider = ({data}) => {
 
   const [active, setActive] = useState({
-      isActive1 : true,
-      isActive2: false
+    isActive1 : true,
+    isActive2: false
   })
 
   let imageList = useRef(null)
   let textList = useRef(null)
+  let sliderContainer = useRef(null)
+  let sliderReveal = CSSRulePlugin.getRule('.slider-section .slider-container:after')
+
+  const tl = new TimelineLite(); 
+
+  useEffect(() => {
+    tl.to(sliderContainer, {
+      css: {visibility: 'visible'}, 
+      duration: .8, 
+      delay: 1.8,
+    }).to(sliderReveal, {
+      duration: .8, 
+      width: "0%", 
+      ease: Power3.easeInOut
+    }).from(imageList.children[0], {
+      scale: 1.2,
+      ease: Power3.easeIn
+    })
+  }, [imageList.children])
+
 
   const slideRight =(index, duration, multiply=1) => {
     TweenLite.to(imageList.children[index], duration, {
-      x: 600 * multiply, 
+      x: 800 * multiply, 
       ease: Power3.easeOut
     })
   }
   const slideLeft =(index, duration, multiply=1) => {
     TweenLite.to(imageList.children[index], duration, {
-      x: -600 * multiply, 
+      x: -800 * multiply, 
       ease: Power3.easeOut
     })
   }
@@ -74,16 +95,13 @@ const Slider = ({data}) => {
 
 
   return (
-    <div className="slider-section">
+    <div ref={el => sliderContainer = el} className="slider-section">
       <div className="slider-container">
-        <div className="btns left" onClick={handlePrev} >
-          <span><ArrowLeft/></span>
-        </div>
         <div className="slider-inner">
-          <div className="slider-image">
+          <div  className="slider-image">
             <ul ref={el => imageList = el}>      
-              <li className={active.isActive1 ? 'active' : ''}><img src={require(`../../assets/${data.img[0]}.png`)} alt="project creation"/> </li>
-              <li className={active.isActive2 ? 'active' : ''}><img src={require(`../../assets/${data.img[1]}.png`)} alt="project creation"/> </li>
+              <li className={active.isActive1 ? 'active' : ''}><img src={require(`../../assets/${data.img[0]}.webp`)} alt="project creation"/> </li>
+              <li className={active.isActive2 ? 'active' : ''}><img src={require(`../../assets/${data.img[1]}.webp`)} alt="project creation"/> </li>
             </ul>
           </div>
           <div className="slider-content">
@@ -91,21 +109,30 @@ const Slider = ({data}) => {
               <li>
                 <div className="slider-text">
                   <h3 className="title">{data.title[0]}</h3>
+                  <div className="description-container">
                   <h4 className="description">{data.description[0]}</h4>
+
+                  </div>
                 </div>
               </li>
               <li>
                 <div className="slider-text">
                   <h3 className="title">{data.title[1]}</h3>
-                  <h4 className="description">{data.description[1]}</h4>
+                  <div className="description-container">
+                    <h4 className="description">{data.description[1]}</h4>
+                  </div>
                 </div>
               </li>
             </ul>
+            <div className="btns-container">
+              <div className="btns left" onClick={handlePrev} >
+                <span><ArrowLeft/></span>
+              </div>
+              <div className="btns right" onClick={handleNext}>
+                <span><ArrowRight/></span>
+              </div>
+            </div>
           </div>
-
-        </div>
-        <div className="btns right" onClick={handleNext}>
-          <span><ArrowRight/></span>
         </div>
       </div>
     </div>

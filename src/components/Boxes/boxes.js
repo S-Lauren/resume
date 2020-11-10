@@ -14,9 +14,12 @@ export const creations = [
   },
   {
     id: 2,
-    title: ["Watch People", "HelloMoro"],
-    description: ["Lorem ipsume jehezd jrfeop,fr", "Tcheck tchek tchekitout"],
-    img: ['watchpeople1', 'watchpeople']
+    title: ["Watch People", "Search page"],
+    description: [`WatchPeople is an application to keep track of prisoners. 
+    The project was made with fake data and random user API for portrait 
+    Coded in Reactjs and Material UI for CSS`, 
+    "Tcheck tchek tchekitout"],
+    img: ['watchpeople1', 'watchpeople2']
   },
   {
     id: 3,
@@ -41,7 +44,7 @@ const Boxes = () => {
                   <h2>{items.title}</h2>
                 </div>
                 <div className="box-image">
-                  <img alt="portfolio" src={require(`../../assets/${items.img[0]}.png`)}/>
+                  <img alt="portfolio" src={require(`../../assets/${items.img[0]}.webp`)}/>
                 </div>
               </div>
             </Link>

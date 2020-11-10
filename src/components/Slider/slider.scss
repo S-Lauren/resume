@@ -4,31 +4,45 @@
   display: flex; 
   justify-content: center; 
   align-items: center; 
+  visibility: hidden;
+
   .slider-container {
     height: 600px; 
     width: 1300px; 
     min-width: 1300px; 
     position: relative; 
-    .btns {
+    &:after{
+      content:'';
+      background:black;
+      width: 100%;
+      height: 100%; 
       position: absolute;
-      width: 100px; 
-   
-      bottom: 0;
+      left: 0; 
       top: 0;
-      display: flex;
-      align-items: center; 
-      justify-content: center;
-        span {
+    }
+    .btns-container {
+      position: absolute;
+      bottom: 0;
+      left: 0; 
+      display: flex; 
+      margin-left: 60px; 
+      .btns {
+        margin-right: 15px; 
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+          span {
+            width: 50px; 
+          }
+        cursor: pointer; 
+        &.right {
           width: 50px; 
+          span {
+            width: 50px; 
+            transform: scaleX(-1);
+          }
+  
         }
-      cursor: pointer; 
-      &.right {
-        right: 0; 
-        span {
-          width: 50px; 
-          transform: scaleX(-1);
-        }
- 
       }
     }
     .slider-inner {
@@ -36,9 +50,8 @@
       align-items: center; 
       justify-content: center;
       height: 600px; 
-
       .slider-image {
-        width: 500px; 
+        width: 800px; 
         display: flex;
         align-items: center; 
         justify-content: center;
@@ -48,14 +61,14 @@
           display: flex; 
           position: absolute; 
           overflow: hidden; 
-          width: 600px; 
-          height: 325px;
+          width: 800px; 
+          height: 569px;
           li{
-            width: 600px; 
-            height: 345px;
+            width: 800px; 
+            height: 569px;
             img {
-              width: 600px; 
-              height: 365px;
+              width: 800px; 
+              height: 569px;
             }
           }
         }
@@ -65,7 +78,8 @@
         justify-content: center;
         align-items: center;
         width: 500px; 
-        height: 400px; 
+        height: 500px; 
+        position: relative; 
         ul {
           width: 600px; 
           height: 400px; 
@@ -86,12 +100,16 @@
             .slider-text {
               width: 500px; 
               .title {
-              font-size: 26px;
+              font-size: 30px;
                letter-spacing: .8px;
               }
-              .description {
-                font-size: 18px;
-                letter-spacing: .8px;
+              .description-container {
+                width: 400px; 
+                .description {
+                  font-size: 18px;
+                  letter-spacing: .8px;
+                  line-height: 1.8rem;
+                }
               }
             }
           }

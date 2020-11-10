@@ -1,22 +1,21 @@
 import gsap from 'gsap';
 import React, { useEffect } from 'react';
 import {useLocation} from 'react-router-dom';
-import ImageProject from '../ImageProject/imageProject';
 import Slider from '../Slider/slider';
 
 const BoxItem = () => {
 
   const location = useLocation()
-console.log(location.state.data)
+
   useEffect(() => {
     const tl = gsap.timeline(); 
     tl.from(".overlay", {
-      duration: .8,
-
+      duration: 1.2,
       width: 0,
+      delay: .8,
       ease: "expo.inOut",
       stagger: {
-        amount: .2
+        amout: .4
       }
     }).from('.project-title p', {
       skexY: 7,
@@ -31,6 +30,7 @@ console.log(location.state.data)
   }, [])
  
   return (
+
     <div className="overlay">
       {/* <div className="project">
         <div className="container">
@@ -50,6 +50,8 @@ console.log(location.state.data)
         </div>
       </div> */}
     </div>
+
+      
   );
 };
 

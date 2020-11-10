@@ -38,9 +38,10 @@ const Overlay = () => {
       stagger: {
         amount: .2
       }
-    }).from(".box-image img", 1.6, {
+    }).from(".box-image img", {
       scale: 1.4,
       delay: -.2,
+      duration: 1.6,
       ease: 'expo.inOut',
       stagger: {
         amount: .4
